@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { getPost } from "../../service";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
@@ -7,10 +8,16 @@ import PostCard from "../../components/PostCard";
 import LastPost from "../../components/LastPost";
 import Tags from "../../components/Tags";
 import Footer from "../../components/Footer";
-import seeds from "../../public/seed";
 
 
 const Blog = () => {
+    const [posts, setPosts] = useState([]);
+    useEffect(() => {
+        (async () => {
+            const data =  await getPost()
+            setPosts(data);
+        })();
+    }, [])
     return (
         <>
           <NavBar /> 
@@ -23,8 +30,8 @@ const Blog = () => {
                 </Stack>
             </Grid>
             <Grid item xs={12} md={9} sx={{padding: "1.5rem 4rem"}}>
-                {seeds.map((seed, index) => (
-                    <PostCard  key={index} {...seed}/> 
+                { posts.length === 0 ? null : posts.map((post: any, index: number) => (
+                    <PostCard  key={index} {...post}/> 
                 ))}
             </Grid>
           </Grid>
