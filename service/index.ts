@@ -15,3 +15,11 @@ export async function getPost() {
     .then(response => response.data)
     .catch(err => console.log(err));
 }
+
+export async function login(email: string, password: string) {
+    return { token: "test" }
+}
+
+export async function register() {
+
+}

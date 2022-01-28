@@ -23,7 +23,6 @@ interface PostState  {
 const Post = () => {
     const router = useRouter();
     const { data, error } = useSWR<PostState>(router.query.id, getPostById);
-
     return (
         <>
           <NavBar /> 
