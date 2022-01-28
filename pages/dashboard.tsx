@@ -14,7 +14,7 @@ const MdEditor = dynamic(() => import('react-markdown-editor-lite'), {
 const DashBoard = () => {
     const router = useRouter();
     const [markdownText, setMarkdownText] = useState("");
-    const { data, status } = useSession();
+    const { status } = useSession();
     if(status !== "authenticated")
         router.push("/auth/login");
     return (
@@ -23,7 +23,7 @@ const DashBoard = () => {
                 value={markdownText}
                 style={{ height: '500px' }} 
                 renderHTML={text => mdParser.render(text)} 
-                onChange={({html, text})=> { setMarkdownText(text) }}
+                onChange={({text})=> { setMarkdownText(text) }}
             />;
         </>
     )

@@ -17,7 +17,11 @@ export async function getPost() {
 }
 
 export async function login(email: string, password: string) {
-    return { token: "test" }
+    return axios.post("http://localhost:5000/auth/login", {
+        email, password
+    })
+    .then(response => response.data)
+    .catch(err =>  console.log(err));
 }
 
 export async function register() {

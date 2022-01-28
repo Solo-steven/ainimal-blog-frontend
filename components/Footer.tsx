@@ -61,9 +61,10 @@ const Footer =() => {
                 marginTop: "4rem",
                 borderTop: "1px solid #FAFAFA",
                 padding: "2rem",
-                color: "#FAFAFA"
+                color: "#FAFAFA",
+                textAlign: "center",
             }}>
-                {"© Copyright 2021 Flurry. All Rights Reserved."}
+                {"© Copyright 2021 Ainimal. All Rights Reserved."}
             </Box>
             
         </Box>

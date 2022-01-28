@@ -13,8 +13,7 @@ export default NextAuth({
             authorize: async (credentials, req) => {
                 const email = credentials?.email , password = credentials?.password  ;
                 const user: any = await login(email as string, password as string);
-                if(user)
-                    return user;
+                if(user) return user;
                 return null;
             }
         })

@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
@@ -28,23 +29,32 @@ const NavBar = () => {
             >
                 <Image src={Logo} alt="logo" width="120px" height="30px"/>
                 <Button variant="text" color="inherit">{"產品"}</Button>
-                <Button variant="text" color="inherit">{"技術文章"}</Button>
+                <Button variant="text" color="inherit" sx={{ "& > a": { color: "#000000", textDecoration: "none" } }}>
+                    <Link href="/blog">
+                        {"技術文章"}
+                    </Link>
+                </Button>
                 <Button variant="text" color="inherit">{"關於我們"}</Button>
                 <Box sx={{flexGrow: 1}}/>
                 <ButtonBase 
                     sx={{
                         padding: ".75rem 1rem",
                         borderRadius: "20px",
-                        fontSize: "20px",
-                        fontWeight: 500,
-                        color: "#f7b037",
                         ":hover" : {
                             border: "1px solid ##f7b037",
                             backgroundColor: "#f7b1372d",
+                        },
+                        "& > a": {
+                            fontSize: "20px",
+                            fontWeight: 500,
+                            textDecoration: "none",
+                            color: "#f7b037",
                         }
                     }}
                 >
-                    {"Log in"}
+                    <Link href="/auth/login">
+                        {"Log In"}
+                    </Link>
                 </ButtonBase>
                 <ButtonBase 
                     sx={{
@@ -57,12 +67,21 @@ const NavBar = () => {
                         ":hover" : {
                             border: "1px solid ##f7b037",
                             backgroundColor: "#f7b1372d",
-                            color: "#f7b037",
+                            "& > a": {
+                              color: "#f7b037",
+                            }
+                        },
+                        "& > a": {
+                            fontSize: "20px",
+                            fontWeight: 500,
+                            textDecoration: "none",
+                            color: "#FAFAFA",
                         }
-                        
                     }}
                 >
-                    {"Sign Up"}
+                    <Link href="/auth/register">
+                        {"Sign Up"}
+                    </Link>
                 </ButtonBase>
             </Stack>
         </AppBar>
