@@ -17,7 +17,7 @@ const Register: React.FC = () => {
     const [passwordCheck, setPasswordCheck] = useState("");
     const { status } = useSession();
     if(status === "authenticated") 
-        router.push("/dashboard");
+        router.push("/user");
     return (
        <Stack
             spacing={4} 

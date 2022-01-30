@@ -3,11 +3,11 @@ import { getPost } from "../../service";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
-import NavBar from "../../components/NavBar";
-import PostCard from "../../components/PostCard";
-import LastPost from "../../components/LastPost";
-import Tags from "../../components/Tags";
-import Footer from "../../components/Footer";
+import NavBar from "../../components/blog/NavBar";
+import PostCard from "../../components/blog/PostCard";
+import LastPost from "../../components/blog/LastPost";
+import Tags from "../../components/blog/Tags";
+import Footer from "../../components/blog/Footer";
 
 
 const Blog = () => {

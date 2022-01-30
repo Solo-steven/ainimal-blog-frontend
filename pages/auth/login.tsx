@@ -14,9 +14,11 @@ const Login: React.FC = () => {
     const router = useRouter();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [valid, setValid] = useState([false, false]);
+    const [helperText, setHelperText] = useState(["", ""]);
     const { status } = useSession();
     if(status === "authenticated") 
-        router.push("/dashboard");
+        router.push("/user");
     return (
        <Stack
             spacing={4} 
@@ -46,8 +48,29 @@ const Login: React.FC = () => {
                     {"歡迎回來"}
                 </Box>
                 <Stack spacing={3}>
-                    <TextField label="email" value={email} onChange={(e) => { setEmail(e.target.value) }}/>
-                    <TextField label="password" type="password" value={password} onChange={(e) => { setPassword(e.target.value) }}/>
+                    <TextField 
+                        error={valid[0]}
+                        label="email" 
+                        value={email} 
+                        onChange={(e) => { 
+                            if(valid[0] === true) 
+                                setValid(pre => [false, pre[1]])
+                            setEmail(e.target.value) 
+                        }}
+                        helperText={ valid[0] ? helperText[0] : null}
+                    />
+                    <TextField 
+                        error={valid[1]}
+                        label="password" 
+                        type="password" 
+                        value={password} 
+                        onChange={(e) => { 
+                            if(valid[1] === true)
+                                setValid(pre => [pre[0], false])
+                            setPassword(e.target.value) 
+                        }}
+                        helperText={ valid[1] ? helperText[1] : null}
+                    />
                 </Stack>
                 <Box sx={{
                     display: "flex",
@@ -58,12 +81,21 @@ const Login: React.FC = () => {
                         variant="contained" 
                         fullWidth 
                         onClick={ async () => { 
-                            const result =  await  signIn("credentials", { 
+                            if(!email || !password) {
+                                if(!email) setHelperText(pre => ["email emtpy", pre[1] ]);
+                                if(!password) setHelperText(pre => [pre[0], "password emtpy" ]);
+                                setValid([ !email, !password ]);
+                                return;
+                            }
+                            const result =  await signIn("credentials", { 
                                 redirect: false,  
                                 email,
                                 password,
-                            }) 
-                            console.log(result)
+                            })
+                            if( !!result && !result?.ok) {
+                                setValid([true, true]);
+                                setHelperText(["worng email or password","worng email or password" ]);
+                            }
                         }
                     }>
                         {"登入"}
@@ -89,7 +121,10 @@ const Login: React.FC = () => {
                     <Button 
                         variant="outlined"
                         fullWidth 
-                        onClick={() => {router.push("/auth/register")}}
+                        onClick={() => {
+                            router.push("/auth/register");
+
+                        }}
                     >
                         {"註冊"}
                     </Button>

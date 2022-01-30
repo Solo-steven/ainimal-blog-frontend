@@ -24,6 +24,8 @@ export async function login(email: string, password: string) {
     .catch(err =>  console.log(err));
 }
 
-export async function register() {
-
+export async function getUserPost(token: string) {
+    return axios.get("http://localhost:5000/user/post", { headers: { 'Authorization': token}})
+        .then(response => response.data)
+        .catch(err => console.log(err));
 }
