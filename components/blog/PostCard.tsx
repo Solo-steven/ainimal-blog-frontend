@@ -13,12 +13,11 @@ interface PostCardProps {
     author?: string;
 }
 
-
 const PostCard: React.FC<PostCardProps> = (props: PostCardProps) => {
     return (
         <Grid container>
             <Grid item xs={12} md={4} sx={{paddingRight: "20px"}}> 
-                <Image src={props.image} alt={""}  width="300px" height="300px"/>
+                <Image src={props.image} alt={""}  width="300px" height="300px" layout="responsive"/>
             </Grid>
             <Grid item xs={12} md={8}>
                 <Box sx={{ fontSize: "32px", fontWeight: 600 , "& > a ": { textDecoration: "none", color: "black"} }}>
