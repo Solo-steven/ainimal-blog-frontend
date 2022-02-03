@@ -32,7 +32,7 @@ const Blog: React.FC<BlogProps> = ({ lastPosts, allPosts, tags }) => {
           <Box sx={{ height: "105px"}}/>
           <Grid 
             container 
-            spacing={{ xs: 0, md: 3,  }} 
+            spacing={{ xs: 0, md: 4, lg: 3  }} 
             sx={{
                 padding: { xs:"1rem", sm: "2rem", md: "3rem"  }
             }}
@@ -46,7 +46,7 @@ const Blog: React.FC<BlogProps> = ({ lastPosts, allPosts, tags }) => {
                 }}
             >
                 <Stack spacing={4}>
-                    <LastPost postTitles={lastPosts.map(post => post.title)}/>
+                    <LastPost postTitles={lastPosts.map(post => ({ title: post.title, id: post.id}))}/>
                     <Tags tags={tags} />
                 </Stack>
             </Grid>

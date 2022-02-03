@@ -18,7 +18,7 @@ const Footer =() => {
         <Box
             sx={{
                 backgroundColor: "#fcca72",
-                padding: { xs: "1rem 1rem", sm: "1.5rem 3rem",  md:"2rem 5rem", lg: "2rem 7rem"},
+                padding: { xs: "1.5rem 1rem", sm: "1.5rem 3rem",  md:"2rem 10rem", lg: "2rem 15rem"},
             }}
         >
             <Grid container spacing={{ xs: 3, sm: 0 }}>
@@ -28,7 +28,7 @@ const Footer =() => {
                 <Grid item xs={12} sm={4}>
                     <Stack spacing={3}>
                         <FooterItem>{"產品"}</FooterItem>
-                        <FooterItem>{"部落格"}</FooterItem>
+                        <FooterItem>{"技術文章"}</FooterItem>
                         <FooterItem>{"關於我們"}</FooterItem>
                     </Stack>
                 </Grid>
@@ -50,7 +50,7 @@ const Footer =() => {
                 </Grid>
             </Grid>
             <Box sx={{
-                marginTop: "4rem",
+                marginTop: { xs: "2rem", md:"4rem" },
                 borderTop: "1px solid #FAFAFA",
                 padding: "2rem",
                 color: "#FAFAFA",

@@ -1,8 +1,12 @@
 import React from "react";
+import Link from "next/Link";
 import Box from "@mui/material/Box";
 
 interface LastPostProps  {
-    postTitles : Array<string>;
+    postTitles : Array<{
+        id: string;
+        title: string;
+    }>;
 };
 
 const LastPost: React.FC<LastPostProps> = ({postTitles}) => {
@@ -25,7 +29,7 @@ const LastPost: React.FC<LastPostProps> = ({postTitles}) => {
                 paddingLeft: "20px" 
             }}
            >
-              { postTitles.map((title, index) => (
+              { postTitles.map((post, index) => (
                   <Box
                     component="li"
                     key={index}
@@ -38,8 +42,13 @@ const LastPost: React.FC<LastPostProps> = ({postTitles}) => {
                         }
                     }}
                 >
-                    <Box sx={{ fontSize: "1rem"}} >
-                        {title}
+                    <Box sx={{ 
+                        fontSize: "1rem",
+                        "& a": {
+                            textDecoration: "none", color: "#000000"
+                        }
+                    }}>
+                        <Link href={`/blog/${post.id}`}>{post.title}</Link>
                      </Box>
                   </Box>
                 ))}

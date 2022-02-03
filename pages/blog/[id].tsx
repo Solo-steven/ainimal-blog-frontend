@@ -60,7 +60,7 @@ const Post: React.FC<PostProps> = ({lastPosts, tags}) => {
                 }}
             >
                 <Stack spacing={4}>
-                    <LastPost postTitles={lastPosts.map(post => post.title)}/>
+                    <LastPost postTitles={lastPosts.map(post => ({ title: post.title, id: post.id}))}/>
                     <Tags  tags={tags}/>
                 </Stack>
             </Grid>
