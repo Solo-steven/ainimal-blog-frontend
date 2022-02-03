@@ -5,7 +5,7 @@ import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import Logo from "../public/logo.svg";
+import Logo from "../../public/logo.svg";
 
 const Footer =() => {
     return (

@@ -1,28 +1,40 @@
+/* eslint-disable react/no-children-prop */
 import React from "react";
 import  { useRouter  } from "next/router";
 import Image from "next/image";
 import useSWR from "swr";
-import { getPostById } from "../../service";
+import { getPostById, getPostPopular, getPostTags  } from "service/index";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
-import NavBar from "../../components/blog/NavBar";
-import LastPost from "../../components/blog/LastPost";
-import Tags from "../../components/blog/Tags";
-import Footer from "../../components/blog/Footer";
+import NavBar from "components/blog/NavBar";
+import LastPost from "components/blog/LastPost";
+import Tags from "components/blog/Tags";
+import Footer from "components/blog/Footer";
+import ReactMarkdown from "react-markdown";
 
-interface PostState  {
+interface Post  {
     id: string;
     title: string;
     content: string;
-    timestamp: string;
     author: string;
-    image: any;
+    timestamp: string;
+    image: string;
 }
 
-const Post = () => {
+interface PostProps {
+    lastPosts: Array<Post>;
+    tags: Array<string>;
+}
+
+
+const Post: React.FC<PostProps> = ({lastPosts, tags}) => {
     const router = useRouter();
-    const { data, error } = useSWR<PostState>(router.query.id, getPostById);
+    const { data, error } = useSWR<Post>(router.query.id, getPostById);
+    if(router.isFallback)
+        return (
+            <div>Loading</div>
+        )
     return (
         <>
           <NavBar /> 
@@ -30,8 +42,8 @@ const Post = () => {
           <Grid container sx={{margin:"2rem 0px"}} >
             <Grid item xs={0} md={3} sx={{padding: "1.5rem 4rem"}}>
                 <Stack spacing={4}>
-                    <LastPost/>
-                    <Tags />
+                    <LastPost postTitles={lastPosts.map(post => post.title)}/>
+                    <Tags  tags={tags}/>
                 </Stack>
             </Grid>
             <Grid item xs={12} md={9} sx={{padding: "1.5rem 4rem"}}>
@@ -44,8 +56,8 @@ const Post = () => {
                         <Box sx={{ textAlign: "center", fontSize: "36px", fontWeight: 600 }}>
                           {data.title}
                         </Box>
-                        <Box sx={{ textAlign: "center", fontSize: "20px", fontWeight: 300 }}>
-                            {data.content}
+                        <Box>
+                            <ReactMarkdown children={data.content} />
                         </Box>
                         <Stack direction="row" sx={{justifyContent: "flex-end"}} spacing={3}>
                             <Box sx={{ textAlign: "center", fontSize: "16px", fontWeight: 400 }}>
@@ -66,6 +78,24 @@ const Post = () => {
           <Footer />
         </>
     )
+}
+
+export async function getStaticProps() {
+    const lastPosts = await getPostPopular();
+    const tags = await getPostTags();
+    return {
+        props: {
+            lastPosts,
+            tags
+        }
+    }
+};
+
+export function getStaticPaths() {
+    return {
+        paths: [],
+        fallback: true,
+    }
 }
 
 export default Post;

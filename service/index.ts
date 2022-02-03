@@ -25,7 +25,28 @@ export async function login(email: string, password: string) {
 }
 
 export async function getUserPost(token: string) {
-    return axios.get("http://localhost:5000/user/post", { headers: { 'Authorization': token}})
+    return axios.get("http://localhost:5000/user/post", { headers: { "Authorization": token}})
+        .then(response => response.data)
+        .catch(err => console.log(err));
+}
+
+export async function createAUserPost(token: string, title: string , content: string, tags: string[]) {
+    return axios.post("http://localhost:5000/user/post",
+        { title, content, tags }, 
+        { headers: { "Authorization": token  } }
+    )
+        .then(response => response.data)
+        .catch(err => console.log(err));
+}
+
+export async function getPostTags() {
+    return await axios.get("http://localhost:5000/post/tag")
+        .then(response => response.data)
+        .catch(err =>  console.log(err));
+}
+
+export async function getPostPopular() {
+    return await axios.get("http://localhost:5000/post/popular")
         .then(response => response.data)
         .catch(err => console.log(err));
 }

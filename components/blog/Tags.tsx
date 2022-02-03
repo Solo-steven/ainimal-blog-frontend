@@ -1,8 +1,11 @@
 import React from "react";
 import Box from "@mui/material/Box";
 
+interface TagsProps {
+    tags: Array<string>;
+};
 
-const Tags = () => {
+const Tags: React.FC<TagsProps> = ({tags}) => {
     return (
         <div>
           <Box 
@@ -16,16 +19,16 @@ const Tags = () => {
                {"貼文標籤"}
           </Box>
           <Box>
-              {(new Array(10)).fill("各式各樣的標籤").map((text, index) => (
+              {tags.map((tag, index) => (
                     <Box
-                        key={index}
+                        key={tag}
                         sx={{
                             fontSize: "16px", 
                             padding: ".75rem 1rem ",
                             cursor: "pointer"
                         }}
                      >
-                        {text}
+                        {tag}
                      </Box>
               ))}
           </Box>

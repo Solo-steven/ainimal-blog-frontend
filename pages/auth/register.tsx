@@ -8,7 +8,7 @@ import Paper from "@mui/material/Paper";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Divider from "@mui/material/Divider";
-import Logo from "../../public/logo.svg";
+import Logo from "public/logo.svg";
 
 const Register: React.FC = () => {
     const router = useRouter();

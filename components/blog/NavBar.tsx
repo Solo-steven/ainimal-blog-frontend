@@ -7,8 +7,7 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import ButtonBase from "@mui/material/ButtonBase";
 
-import Logo from "../public/logo.svg";
-import { borderRadius } from "@mui/system";
+import Logo from "../../public/logo.svg";
 
 const NavBar = () => {
     return (

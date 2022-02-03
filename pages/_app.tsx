@@ -1,7 +1,6 @@
-import '../styles/globals.css';
-import "../styles/animation.css";
-import type { AppProps } from 'next/app'
-import { SessionProvider } from "next-auth/react"
+import type { AppProps } from 'next/app';
+import { SessionProvider } from "next-auth/react";
+import CssBaseline from "@mui/material/CssBaseline";
 
 export default function App({
   Component,
@@ -9,6 +8,7 @@ export default function App({
 }: AppProps) {
   return (
     <SessionProvider session={session}>
+      <CssBaseline />
       <Component {...pageProps} />
     </SessionProvider>
   )

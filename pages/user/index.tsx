@@ -7,8 +7,8 @@ import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
 import Chip from "@mui/material/Chip";
-import SideBar from "../../components/user/SideBar";
-import { getUserPost } from "../../service";
+import SideBar from "components/user/SideBar";
+import { getUserPost } from "service/index";
 
 
 const DashBoard = () => {
@@ -20,18 +20,24 @@ const DashBoard = () => {
     if(status !== "authenticated" && router.isReady)
         router.push("/auth/login");
     return (
-        <Stack direction={"row"} spacing={5}>
+        <Stack direction={"row"}>
             <SideBar />
-            <Box>
-                <Grid 
-                    container 
-                    sx={{ 
-                        height: "100vh", 
-                        overflowY: "auto",
-                        padding: "2rem 4rem",
-                    }}
-                    spacing={5}
-                >
+            <Stack 
+                flexGrow={1}
+                sx={{
+                  height:"100vh",
+                  overflowY: "auto",
+                }}
+            >
+                <Box sx={{ 
+                    fontSize: "32px",
+                    padding: "1rem 2rem",
+                    borderBottom: "1px solid black",
+                    margin: "1rem 2rem"
+                }}>
+                    {"新增文章"}
+                </Box>
+                <Grid sx={{ padding: "2rem 4rem",}}  spacing={3}>
                     {
                         request.data?.map((post: any) => (
                             <Grid item xs={12} key={post.id}>
@@ -66,7 +72,7 @@ const DashBoard = () => {
                         ))
                     }
                 </Grid>
-            </Box>
+            </Stack>
         </Stack>
     )
 
