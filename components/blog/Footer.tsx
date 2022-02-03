@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
 import Grid from "@mui/material/Grid";
@@ -7,53 +8,44 @@ import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import Logo from "../../public/logo.svg";
 
+const FooterItem = styled(Box)({ 
+    textAlign: "center", 
+    color: "#FAFAFA"
+});
+
 const Footer =() => {
     return (
         <Box
             sx={{
                 backgroundColor: "#fcca72",
-                padding: "2rem 10rem",
+                padding: { xs: "1rem 1rem", sm: "1.5rem 3rem",  md:"2rem 5rem", lg: "2rem 7rem"},
             }}
         >
-            <Grid container>
-                <Grid item xs={12} sx={{display:"flex", justifyContent: "center", paddingBottom: "3rem"}}>
+            <Grid container spacing={{ xs: 3, sm: 0 }}>
+                <Grid item xs={12} sx={{display:"flex", justifyContent: "center", paddingBottom: { xs: ".8rem", sm: "3rem"  }}}>
                     <Image src={Logo} alt="logo"/>
                 </Grid>
-                <Grid  item xs={12} md={4}>
+                <Grid item xs={12} sm={4}>
                     <Stack spacing={3}>
-                        <Box sx={{ textAlign: "center", color: "#FAFAFA"}}>
-                            {"產品"}
-                        </Box>
-                        <Box sx={{ textAlign: "center", color: "#FAFAFA"}}>
-                            {"部落格"}
-                        </Box>
-                        <Box sx={{ textAlign: "center", color: "#FAFAFA"}}>
-                            {"關於我們"}
-                        </Box>
+                        <FooterItem>{"產品"}</FooterItem>
+                        <FooterItem>{"部落格"}</FooterItem>
+                        <FooterItem>{"關於我們"}</FooterItem>
                     </Stack>
                 </Grid>
-                <Grid  item xs={12} md={4}>
+                <Grid  item xs={12} sm={4}>
                     <Stack spacing={3}>
-                        <Box sx={{ textAlign: "center", color: "#FAFAFA"}}>
-                            {"常見問題"}
-                        </Box>
-                        <Box sx={{ textAlign: "center", color: "#FAFAFA"}}>
-                            {"問題回報"}
-                        </Box>
-                        <Box sx={{ textAlign: "center", color: "#FAFAFA"}}>
-                            {"使用條款"}
-                        </Box>
+                        <FooterItem>{"常見問題"}</FooterItem>
+                        <FooterItem>{"問題回報"}</FooterItem>
+                        <FooterItem>{"使用條款"}</FooterItem>
                     </Stack>
                 </Grid>
-                <Grid  item xs={12} md={4}>
+                <Grid  item xs={12} sm={4}>
                     <Stack spacing={3}>
-                        <Box sx={{ textAlign: "center", color: "#FAFAFA"}}>
-                            {"追蹤我們"}
-                        </Box>
-                        <Box sx={{ textAlign: "center", color: "#FAFAFA"}}>
+                        <FooterItem>{"追蹤我們"}</FooterItem>
+                        <FooterItem>
                             <FacebookIcon/>
                             <InstagramIcon />
-                        </Box>
+                        </FooterItem>
                     </Stack>
                 </Grid>
             </Grid>

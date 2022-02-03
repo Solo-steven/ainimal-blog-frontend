@@ -27,10 +27,15 @@ interface PostProps {
     tags: Array<string>;
 }
 
-
 const Post: React.FC<PostProps> = ({lastPosts, tags}) => {
     const router = useRouter();
     const { data, error } = useSWR<Post>(router.query.id, getPostById);
+
+    if(error) 
+        return (
+            <div>Error</div>
+        )
+
     if(router.isFallback)
         return (
             <div>Loading</div>
@@ -39,21 +44,38 @@ const Post: React.FC<PostProps> = ({lastPosts, tags}) => {
         <>
           <NavBar /> 
           <Box sx={{ height: "105px"}}/>
-          <Grid container sx={{margin:"2rem 0px"}} >
-            <Grid item xs={0} md={3} sx={{padding: "1.5rem 4rem"}}>
+          <Grid 
+            container 
+            spacing={{ xs: 0, md: 3,  }} 
+            sx={{
+                padding: { xs:"1rem", sm: "2rem", md: "3rem"  }
+            }}
+          >
+            <Grid 
+                item 
+                xs={0}
+                md={3} 
+                sx={{ 
+                    display: { xs: "none", md: "flex" },
+                }}
+            >
                 <Stack spacing={4}>
                     <LastPost postTitles={lastPosts.map(post => post.title)}/>
                     <Tags  tags={tags}/>
                 </Stack>
             </Grid>
-            <Grid item xs={12} md={9} sx={{padding: "1.5rem 4rem"}}>
+            <Grid 
+                item 
+                xs={12}
+                md={9} 
+            >
                 {
                     !data ? (null) : (
-                      <Stack spacing={4}>
+                      <Stack>
                         <Box sx={{ display: "flex", justifyContent: "center" }}>
                             <Image src={data.image} alt="image" width="700px" height="700px"/>
                         </Box>
-                        <Box sx={{ textAlign: "center", fontSize: "36px", fontWeight: 600 }}>
+                        <Box sx={{ textAlign: "center", fontSize: "36px", fontWeight: 600, marginTop: "1rem" }}>
                           {data.title}
                         </Box>
                         <Box>

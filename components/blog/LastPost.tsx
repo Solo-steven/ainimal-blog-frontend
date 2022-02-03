@@ -13,18 +13,25 @@ const LastPost: React.FC<LastPostProps> = ({postTitles}) => {
                 fontSize: "32px",
                 fontWeight: 700,
                 position: "sticky",
-                marginBottom: "20px"
+                marginBottom: "10px"
              }}
            >
                {"最新的貼文"}
           </Box>
-          <ul>
+          <Box 
+            component="ul" 
+            sx={{ 
+                margin: "0px",
+                paddingLeft: "20px" 
+            }}
+           >
               { postTitles.map((title, index) => (
                   <Box
                     component="li"
                     key={index}
                     sx={{
                         alignItems: "flex-start",
+                        cursor: "pointer",
                         "&::marker": {
                             color: "#f7b037",
                             fontSize: "1.5em"
@@ -36,7 +43,7 @@ const LastPost: React.FC<LastPostProps> = ({postTitles}) => {
                      </Box>
                   </Box>
                 ))}
-          </ul>
+          </Box>
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { getPost, getPostPopular, getPostTags } from "service/index";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
@@ -30,14 +30,31 @@ const Blog: React.FC<BlogProps> = ({ lastPosts, allPosts, tags }) => {
         <>
           <NavBar /> 
           <Box sx={{ height: "105px"}}/>
-          <Grid container sx={{margin:"2rem 0px"}} >
-            <Grid item xs={0} md={3} sx={{padding: "1.5rem 4rem"}}>
+          <Grid 
+            container 
+            spacing={{ xs: 0, md: 3,  }} 
+            sx={{
+                padding: { xs:"1rem", sm: "2rem", md: "3rem"  }
+            }}
+          >
+            <Grid 
+                item 
+                xs={0}
+                md={3} 
+                sx={{ 
+                    display: { xs: "none", md: "flex" },
+                }}
+            >
                 <Stack spacing={4}>
                     <LastPost postTitles={lastPosts.map(post => post.title)}/>
                     <Tags tags={tags} />
                 </Stack>
             </Grid>
-            <Grid item xs={12} md={9} sx={{padding: "1.5rem 4rem"}}>
+            <Grid 
+                item 
+                xs={12}
+                md={9} 
+            >
                 { allPosts.map((post: any, index: number) => (
                     <PostCard  key={index} {...post}/> 
                 ))}
