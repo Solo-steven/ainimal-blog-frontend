@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
@@ -9,8 +10,13 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import Logo from "../../public/logo.svg";
 
 const FooterItem = styled(Box)({ 
-    textAlign: "center", 
-    color: "#FAFAFA"
+    display: "flex",
+    justifyContent: "center",
+    color: "#FAFAFA",
+    "& > a" : {
+        textDecoration: "none",
+        color: "#FAFAFA",
+    }
 });
 
 const Footer =() => {
@@ -27,16 +33,28 @@ const Footer =() => {
                 </Grid>
                 <Grid item xs={12} sm={4}>
                     <Stack spacing={3}>
-                        <FooterItem>{"產品"}</FooterItem>
-                        <FooterItem>{"技術文章"}</FooterItem>
-                        <FooterItem>{"關於我們"}</FooterItem>
+                        <FooterItem>
+                            <Link href="/">{"產品"}</Link>
+                        </FooterItem>
+                        <FooterItem>
+                            <Link href="/blog">{"技術文章"}</Link>
+                        </FooterItem>
+                        <FooterItem>
+                            <Link href="/aboutus">{"關於我們"}</Link>
+                        </FooterItem>
                     </Stack>
                 </Grid>
                 <Grid  item xs={12} sm={4}>
                     <Stack spacing={3}>
-                        <FooterItem>{"常見問題"}</FooterItem>
-                        <FooterItem>{"問題回報"}</FooterItem>
-                        <FooterItem>{"使用條款"}</FooterItem>
+                        <FooterItem>
+                            <Link href="/problems">{"常見問題"}</Link>
+                        </FooterItem>
+                        <FooterItem>
+                            <Link href="http://m.me/AInimal">{"問題回報"}</Link>
+                        </FooterItem>
+                        <FooterItem>
+                            <Link href="/rules">{"使用條款"}</Link>
+                        </FooterItem>
                     </Stack>
                 </Grid>
                 <Grid  item xs={12} sm={4}>
@@ -58,7 +76,6 @@ const Footer =() => {
             }}>
                 {"© Copyright 2021 Ainimal. All Rights Reserved."}
             </Box>
-            
         </Box>
     )
 };

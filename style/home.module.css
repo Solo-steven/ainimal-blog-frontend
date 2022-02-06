@@ -1,0 +1,706 @@
+@media only screen and (max-width: 551px) {
+  .resetATag {
+    text-decoration: none;
+  }
+  .backgroundFull {
+    display: hidden;
+  }
+  .backgroundUpper {
+    height: 2245px;
+    background-image: url(../public/background1.png);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: auto;
+    overflow: hidden;
+  }
+  .pageHeader {
+    width: 100%;
+    height: 50px;
+    color: white;
+  }
+  .headerLogo {
+    float: left;
+    width: 50%;
+    margin-top: 10px;
+    height: 30px;
+    line-height: 30px;
+    margin-left: 15%;
+  }
+
+  .headerLogo img {
+    height: 30px;
+    width: auto;
+  }
+  .pageHeader .button a {
+    display: none;
+  }
+  .page {
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .first {
+    height: 800px;
+  }
+
+  .pageLeft {
+    height: 200px;
+    text-align: center;
+  }
+
+  .pageRight .video {
+    margin: 0 auto;
+    width: 80%;
+  }
+
+  .slogen {
+    color: #3f2412;
+    height: 110px;
+    width: 100%;
+    font-size: 26px;
+    padding-top: 90px;
+  }
+
+  .pageLeft .iosDownloadButton {
+    height: 40px;
+    width: 35%;
+    margin: 0 20px;
+    font-size: 20px;
+    display: inline-block;
+    background-image: url(../public/appleDownload.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 5px;
+  }
+
+  .pageLeft .androidDownloadButton {
+    height: 40px;
+    width: 35%;
+    margin: 0 20px;
+    font-size: 20px;
+    display: inline-block;
+    background-image: url(../public/androidDownload.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 5px;
+  }
+  .androidDownloadButton a {
+    color: #fba419;
+  }
+  .pageRight {
+    height: 650px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .phone {
+    box-sizing: border-box;
+    margin-top: 40px;
+    margin-right: 0;
+    width: 279px;
+    height: 563px;
+    background-image: url(../public/TopPhone.png);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+    z-index: 1;
+  }
+  .second {
+    height: 900px;
+    padding-top: 30px;
+    width: 100%;
+  }
+  .chatacteristicBlockContainer {
+    display: inline-block;
+  }
+  .chatacteristicBlockContainer img {
+    height: 400px;
+  }
+  .characteristicBlock {
+    padding: 10px;
+    height: 100px;
+    margin: 20px 10% 0 10%;
+    width: 80%;
+    opacity: 0.9;
+    border-radius: 10px;
+    text-align: left;
+  }
+  .chatacteristicBlockContainerComputer {
+    display: none;
+  }
+  .chatacteristicBlockContainerMobile {
+    margin-top: 50px;
+  }
+
+  .chatacteristicBlockContainerMobile img {
+    height: auto;
+    width: 90%;
+  }
+
+  .characteristicBlockHeader {
+    font-size: 26px;
+    font-weight: 900;
+    color: #fba419;
+  }
+  .characteristicBlockContent {
+    margin-top: 5px;
+    font-size: 17px;
+    color: #302d2c;
+  }
+
+  .third {
+    position: relative;
+    height: 1150px;
+    z-index: 1;
+  }
+
+  .teachingBlock {
+    padding-top: 50px;
+    margin-bottom: 50px;
+    height: 400px;
+    width: 100%;
+  }
+
+  .teachingBlockTitle {
+    height: 50px;
+    line-height: 50px;
+    font-size: 26px;
+    width: 90%;
+    margin: 30px 5% 0 5%;
+    float: left;
+    background-image: url(../public/slash.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 100%;
+  }
+
+  .teachingBlockWord {
+    height: 150px;
+    margin-top: 30px;
+    width: 100%;
+    text-align: center;
+    z-index: -1;
+  }
+
+  .teachingBlockHeader {
+    margin-top: 5%;
+    font-size: 18px;
+    width: 100%;
+  }
+  .teachingBlockContent {
+    margin-top: 5%;
+    font-size: 14px;
+    width: 80%;
+    margin: 0 10%;
+  }
+
+  .teachingBlockStep {
+    color: #fba419;
+    font-size: 26px;
+    margin-top: 20%;
+  }
+
+  .teachingBlockImg01 {
+    width: 80%;
+    margin: 0 10%;
+    float: right;
+  }
+
+  .teachingBlockImg02 {
+    width: 70%;
+    margin: 0 15%;
+    float: right;
+  }
+
+  .teachingBlockImg03 {
+    width: 80%;
+    margin: 0 10%;
+    float: right;
+  }
+
+  .backgroundMiddle {
+    background-image: url(../public/background2.png);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: auto 100%;
+    z-index: -999;
+    overflow: hidden;
+  }
+
+  .fourth {
+    height: 900px;
+  }
+  .teamVideo {
+    margin-top: 100px;
+    height: 450px;
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  .teamVideo video {
+    height: 270px;
+    width: 90%;
+  }
+
+  .fifth {
+    height: 600px;
+    background-image: url(../public/teamPhoto2.png);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: auto 100%;
+    /*background-color: #F9D38F;*/
+  }
+  .teamContent {
+    position: absolute;
+    font-size: 12px;
+    padding: 5%;
+    margin: 50px 15% 0 15%;
+    width: 60%;
+    color: rgb(257, 257, 257, 1);
+    border: solid white;
+    border-width: 1px;
+    border-radius: 10px;
+    background-color: grey;
+    opacity: 0.7;
+  }
+
+  .sixth {
+    height: 750px;
+    text-align: left;
+  }
+
+  .newsBlock {
+    width: 90%;
+    margin: 50px 5% 0px 5%;
+  }
+
+  .newsBlockTitle {
+    width: 100%;
+    display: inline-block;
+    color: #fbb03b;
+    padding-bottom: 10px;
+    border-bottom: solid #fbb03b;
+    border-width: 2px;
+  }
+  .newsBlockTitle a {
+    color: #fbb03b;
+  }
+  .newsBlockTitleWord {
+    float: left;
+    font-size: 28px;
+  }
+  .newsBlockTitleIcon {
+    float: right;
+    text-align: center;
+    width: 70px;
+    background-image: url(../public/expand_news.svg);
+    background-repeat: no-repeat;
+    background-position: center left;
+    background-size: 10px auto;
+  }
+  .newsBlockContentBlock {
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 30px;
+    width: 100%;
+    padding-top: 20px;
+  }
+  .newsBlockContentBlock a {
+    color: #1a1311;
+  }
+  .newsBlockContentBlockTitle {
+    font-size: 16px;
+  }
+  .newsBlockContentBlockContent {
+    margin-top: 5px;
+    font-size: 20px;
+    padding-bottom: 20px;
+    background-image: url(../public/news.svg);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 10px auto;
+    border-bottom: solid #d4d5d5;
+    border-width: 1px;
+  }
+  .prizeBlock {
+    width: 90%;
+    margin: 50px 5% 0px 5%;
+  }
+  .prizeBlockHeader {
+    color: #fbb03b;
+    font-size: 32px;
+  }
+  .prizeBlockContent {
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 30px;
+    width: 100%;
+    padding-top: 20px;
+    color: #1a1311;
+    border-top: solid #fbb03b;
+    border-width: 2px;
+  }
+}
+
+/* computer layout css */
+@media only screen and (min-width: 522px) {
+  .resetATag {
+    text-decoration: none;
+  }
+  .backgroundUpper {
+    display: hidden;
+    text-align: center;
+  }
+  .Background-middle {
+    display: hidden;
+    text-align: center;
+  }
+  .backgroundFull {
+    width: 100vw;
+    background-image: url(../public/background.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+    overflow: hidden;
+    min-width: 900px;
+  }
+
+  .pageHeader {
+    padding-top: 10px;
+    width: 100%;
+    height: 50px;
+    /*background-color: #FCCA72;*/
+    color: white;
+  }
+  .headerLogo {
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    margin-left: 5%;
+    font-size: 42px;
+    text-align: center;
+  }
+  .headerLogo img {
+    height: 30px;
+    width: 100%;
+  }
+  .pageHeader .button a {
+    font-size: 20px;
+    line-height: 50px;
+    float: right;
+    margin-right: 5%;
+    text-align: center;
+    color: white;
+  }
+  .page {
+    text-align: center;
+    max-width: 1200px;
+    margin: 10vh auto;
+  }
+  .pageLeft {
+    height: 600px;
+    text-align: center;
+    float: left;
+    width: 65%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .pageLeft .video {
+    width: 640px;
+    height: 360px;
+  }
+  .pageLeft .buttons {
+    width: 100%;
+  }
+  .slogen {
+    font-family: "Noto Sans TC";
+    color: #3f2412;
+    height: 110px;
+    width: 100%;
+    font-size: 26px;
+    padding-top: 90px;
+  }
+  .pageLeft .iosDownloadButton {
+    height: 80px;
+    width: 25%;
+    margin: 0 20px;
+    font-size: 20px;
+    display: inline-block;
+    background-image: url(../public/appleDownload.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 5px;
+  }
+  .pageLeft .androidDownloadButton {
+    height: 80px;
+    width: 26%;
+    margin: 0 20px;
+    font-size: 20px;
+    display: inline-block;
+    background-image: url(../public/androidDownload.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 5px;
+  }
+  .androidDownloadButton a {
+    color: #fba419;
+  }
+  .pageRight {
+    height: 600px;
+    width: 35%;
+    /* margin-right: 15%; */
+    float: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .phone {
+    box-sizing: border-box;
+    margin-right: 0;
+    width: 279px;
+    height: 563px;
+    background-image: url(../public/TopPhone.png);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: contain;
+    z-index: 1;
+  }
+  .second {
+    height: 650px;
+    margin-top: 80vh;
+    width: 100%;
+    /*background-image: url(../public/phoneBackground.png);
+    background-repeat: repeat;
+    background-position: left;
+    background-size: 110% auto;*/
+    z-index: -9999;
+  }
+  .chatacteristicBlockContainer {
+    margin-top: 150px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .characteristicBlock {
+    padding: 10px;
+    height: 100px;
+    margin: 20px;
+    width: 200px;
+    text-align: left;
+    opacity: 0.9;
+    border-radius: 10px;
+    color: #302d2c;
+  }
+  .characteristicBlockHeader {
+    font-size: 22px;
+    color: #fba419;
+  }
+  .characteristicBlockContent {
+    font-size: 16px;
+    color: #302d2c;
+  }
+  .chatacteristicBlockContainerMobile {
+    display: none;
+  }
+  .chatacteristicBlockContainerComputer {
+    margin-top: 150px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .chatacteristicBlockContainerComputer img {
+    height: 400px;
+  }
+  .third {
+    position: relative;
+    height: 900px;
+    /*background-color: #F9D38F;*/
+  }
+  .teachingBlock {
+    margin-top: 50px;
+    height: 400px;
+    width: 100%;
+    float: left;
+    margin-left: 10px;
+  }
+  .teachingBlockTitle {
+    height: 50px;
+    line-height: 50px;
+    font-size: 26px;
+    width: 90%;
+    margin: 30px 5% 0 5%;
+    float: left;
+    background-image: url(../public/slash.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: auto 100%;
+  }
+  .teachingBlockStep {
+    color: #fba419;
+    font-size: 32px;
+    margin-top: 20%;
+    margin-left: 20%;
+  }
+  .teachingBlockImg01 {
+    width: auto;
+    height: 300px;
+    margin-right: 20%;
+    float: right;
+  }
+  .teachingBlockImg02 {
+    width: auto;
+    height: 350px;
+    margin-right: 24%;
+    float: right;
+  }
+  .teachingBlockImg03 {
+    width: auto;
+    height: 370px;
+    margin-right: 18%;
+    float: right;
+  }
+  .teachingBlockWord {
+    position: absolute;
+    margin-left: 110px;
+    height: 200px;
+    width: 40%;
+    /*background-color: white;
+    border-radius: 100px;*/
+    text-align: left;
+  }
+  .teachingBlockHeader {
+    font-size: 24px;
+    margin-top: 3%;
+    margin-left: 20%;
+    width: 100%;
+  }
+  .teachingBlockContent {
+    margin-top: 3%;
+    margin-left: 20%;
+    font-size: 16px;
+    width: 70%;
+  }
+  .fourth {
+    height: 1100px;
+    /*background-image: url(../public/mountain2.svg);
+    background-repeat: no-repeat;
+    background-position: bottom;*/
+  }
+  .teamVideo {
+    margin-top: 100px;
+    height: 450px;
+    width: 700px;
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .teamVideo video {
+    height: auto;
+    width: 100%;
+  }
+  .fifth {
+    background-image: url(../public/teamPhoto2.png);
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: 100% auto;
+    min-width: 900px;
+    width: 100%;
+    object-fit: cover;
+    text-align: center;
+    height: 600px;
+    /*background-color: #F9D38F;*/
+  }
+  .teamContent {
+    position: absolute;
+    font-size: 14px;
+    margin: 50px auto 0 30%;
+    padding: 1%;
+    height: 24vh;
+    width: 40%;
+    color: white;
+    background-image: url(../public/talkingWindow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    /*background-size: 100% 100%;*/
+  }
+  .sixth {
+    height: 550px;
+    text-align: left;
+  }
+  .newsBlock {
+    width: 90%;
+    margin: 50px 5% 0px 5%;
+  }
+  .newsBlockTitle {
+    width: 100%;
+    display: inline-block;
+    color: #fbb03b;
+    padding-bottom: 10px;
+    border-bottom: solid #fbb03b;
+    border-width: 2px;
+  }
+  .newsBlockTitle a {
+    color: #fbb03b;
+  }
+  .newsBlockTitleWord {
+    float: left;
+    font-size: 28px;
+  }
+  .newsBlockTitleIcon {
+    float: right;
+    text-align: center;
+    width: 70px;
+    background-image: url(../public/expand_news.svg);
+    background-repeat: no-repeat;
+    background-position: center left;
+    background-size: 10px auto;
+  }
+  .newsBlockContentBlock {
+    margin-top: 10px;
+    font-size: 15px;
+    line-height: 30px;
+    width: 100%;
+    padding-top: 20px;
+  }
+  .newsBlockContentBlock a {
+    color: #1a1311;
+  }
+  .newsBlockContentBlockTitle {
+    font-size: 16px;
+  }
+  .newsBlockContentBlockContent {
+    margin-top: 5px;
+    font-size: 22px;
+    padding-bottom: 20px;
+    background-image: url(../public/news.svg);
+    background-repeat: no-repeat;
+    background-position: right bottom;
+    background-size: 10px auto;
+    border-bottom: solid #d4d5d5;
+    border-width: 1px;
+  }
+  .prizeBlock {
+    width: 90%;
+    margin: 50px 5% 0px 5%;
+  }
+  .prizeBlockHeader {
+    color: #fbb03b;
+    font-size: 28px;
+  }
+  .prizeBlockContent {
+    margin-top: 10px;
+    font-size: 22px;
+    line-height: 40px;
+    width: 100%;
+    padding: 20px 0 30px 0;
+    color: #1a1311;
+    border-top: solid #fbb03b;
+    border-width: 2px;
+  }
+}

@@ -14,8 +14,8 @@ const NavBar = () => {
     return (
         <AppBar 
             position="fixed" 
-            sx={{ backgroundColor: '#FFFFFF', color: "#000000", height: "105px"}}
-            elevation={2}
+            sx={{ backgroundColor: '#ffffff7a', color: "#000000", height: "105px"}}
+            elevation={0}
         >
             <Stack
                 sx={{
@@ -34,7 +34,11 @@ const NavBar = () => {
                     </IconButton>
                 </Box>
                 <Stack flexGrow={1} spacing={3} direction="row" sx={{ display: { xs: "none", md: "flex" } }}>
-                    <Button variant="text" color="inherit">{"產品"}</Button>
+                    <Button variant="text" color="inherit" sx={{ "& > a": { color: "#000000", textDecoration: "none" } }}>
+                        <Link href="/">
+                            {"產品"}
+                        </Link>
+                    </Button>
                     <Button variant="text" color="inherit" sx={{ "& > a": { color: "#000000", textDecoration: "none" } }}>
                         <Link href="/blog">
                             {"技術文章"}

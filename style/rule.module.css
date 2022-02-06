@@ -1,0 +1,45 @@
+/* mobile layout css */
+@media only screen and (max-width: 551px) {
+  .mainPage {
+    width: 80%;
+    margin: 0 10%;
+  }
+  .mainPageHeader {
+    margin: 30px 0;
+    padding: 10px;
+    font-size: 22px;
+    color: #fbb03b;
+    border-bottom: solid 2px #fbb03b;
+  }
+
+  .mainPageContent {
+    width: 96%;
+    margin: 0 2% 50px 2%;
+    font-size: 16px;
+    line-height: 30px;
+    color: #707070;
+  }
+}
+
+/* computer layout css */
+@media only screen and (min-width: 522px) {
+  .mainPage {
+    width: 80%;
+    margin: 0 10%;
+  }
+  .mainPageHeader {
+    margin: 30px 0;
+    padding: 10px;
+    font-size: 22px;
+    color: #fbb03b;
+    border-bottom: solid 2px #fbb03b;
+  }
+
+  .mainPageContent {
+    width: 96%;
+    margin: 0 2% 50px 2%;
+    font-size: 16px;
+    line-height: 30px;
+    color: #707070;
+  }
+}
