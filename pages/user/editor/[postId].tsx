@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import useSWR from "swr";
+import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
 import Box from "@mui/material/Box";
 import Stack from "@mui/material/Stack";
@@ -8,11 +10,11 @@ import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
 import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
+import SideBar from "components/user/SideBar";
+import { getUserPostById, getPostTags, updateAUserPost } from "service";
 import dynamic from 'next/dynamic';
 import 'react-markdown-editor-lite/lib/index.css';
 import MarkdownIt from 'markdown-it';
-import SideBar from "components/user/SideBar";
-import { getPostTags, createAUserPost } from "service"
 
 const mdParser = new MarkdownIt();
 const MdEditor = dynamic(() => import('react-markdown-editor-lite'), {
@@ -23,16 +25,34 @@ interface EditorProps {
     tags: Array<string>;
 };
 
-const Editor: React.FC<EditorProps> = (props) => {
+const PostEditor =(props: EditorProps) => {
     const [title, setTitle] = useState("");
     const [tags, setTags] = useState<Array<string>>([]);
     const [markdown, setMarkdown] = useState("");
-
-    const { data, status } = useSession();
-
-    console.log(data);
+    const [postStatus, setPostStatus] = useState("");
+    const router = useRouter();
+    const { data: session, status } = useSession();
+    const { data, error } = useSWR([session?.user.token, router.query.postId], getUserPostById);
+    useEffect(() => {
+        if(data && data.title && data.content && data.tags && data.tags.length  > 0 ) {
+            setTitle(data.title);
+            setTags(data.tags)
+            setMarkdown(data.content);
+            setPostStatus(data.status);
+        }
+    }, [data]);
+    if(!router.isReady || status === "loading") 
+        return (
+            <div>Loading</div>
+        );
+    if(status === "unauthenticated")
+        router.push("/auth/login");
+    if(error)
+        return (
+            <div>Fetch Data Error</div>
+        );
     return (
-        <Stack direction={"row"}>
+       <Stack direction={"row"}>
             <SideBar />
             <Stack 
                 flexGrow={1}
@@ -58,11 +78,24 @@ const Editor: React.FC<EditorProps> = (props) => {
                     />
                     <Box sx={{width: "100%"}}>
                         <FormControl fullWidth>
+                            <InputLabel>{"Status"}</InputLabel>
+                            <Select 
+                                label={"Status"}
+                                value={postStatus} 
+                                onChange={(e) => setPostStatus(e.target.value)}
+                            > 
+                                <MenuItem value={"Publish"} key={"Publish"}>{"Publish"}</MenuItem>
+                                <MenuItem value={"Writing"} key={"Writing"}>{"Writing"}</MenuItem>
+                            </Select>
+                        </FormControl>
+                    </Box>
+                    <Box sx={{width: "100%"}}>
+                        <FormControl fullWidth>
                             <InputLabel>{"Tags"}</InputLabel>
                             <Select 
                                 label={"Tags"}
-                                multiple
                                 value={tags} 
+                                multiple
                                 onChange={(e) => { 
                                     setTags((typeof e.target.value === "string") ? [e.target.value] : e.target.value)
                                   }
@@ -89,12 +122,12 @@ const Editor: React.FC<EditorProps> = (props) => {
                             variant="contained"
                             sx={{ width: "70%" }}
                             onClick={() => {
-                                if( !data?.user.token|| !title || !markdown || tags.length ===0 ){
+                                if( !session?.user.token|| !title || !markdown || tags.length ===0 || !postStatus){
                                     window.alert("input error")
                                     return;
                                 }
-                                console.log(data.user.token, title, tags, markdown);
-                                createAUserPost(data?.user.token, title, markdown, tags);
+                                console.log(session?.user.token, data.id,  title, markdown, tags, postStatus);
+                                updateAUserPost(session?.user.token, data.id,  title, markdown, tags, postStatus);
                             }}
                         >
                             {"發布貼文"}
@@ -103,18 +136,21 @@ const Editor: React.FC<EditorProps> = (props) => {
                 </Stack>
             </Stack>
         </Stack>
-    )
-}
-
+    );
+};
 
 export async function getStaticProps() {
     const data =  await getPostTags();
     return {
         props: { tags: data }
     }
-
 }
 
+export function getStaticPaths() {
+    return {
+        paths: [],
+        fallback: true,
+    }
+}
 
-export default Editor;
-
+export default PostEditor;

@@ -58,7 +58,28 @@ const Blog: React.FC<BlogProps> = ({ lastPosts, allPosts, tags }) => {
             </Grid>
             <Grid item xs={12} md={9} >
                 { allPosts.map((post: any, index: number) => (
-                    <PostCard  key={index} {...post}/> 
+                    <motion.div
+                        custom={index}
+                        initial="hidden"
+                        animate="show"
+                        variants={{
+                            hidden: {
+                                opacity: 0,
+                                x: 100,
+                            },
+                            show: (i: number) => ({ 
+                                opacity: 1,
+                                x: 0,
+                                transition: {
+                                    duration: 0.5,
+                                    delay: 0.3 * i
+                                }
+                            })
+                        }}
+                        key={index}
+                    >
+                        <PostCard  key={index} {...post}/> 
+                    </motion.div>
                 ))}
             </Grid>
           </Grid>

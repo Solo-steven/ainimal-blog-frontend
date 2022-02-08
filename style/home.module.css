@@ -120,9 +120,9 @@
     height: 400px;
   }
   .characteristicBlock {
-    padding: 10px;
+    padding: 30px;
     height: 100px;
-    margin: 20px 10% 0 10%;
+    margin: 0px 10%;
     width: 80%;
     opacity: 0.9;
     border-radius: 10px;
@@ -490,10 +490,9 @@
     vertical-align: middle;
   }
   .characteristicBlock {
-    padding: 10px;
-    height: 100px;
-    margin: 20px;
-    width: 200px;
+    padding: 30px;
+    height: 140px;
+    width: 240px;
     text-align: left;
     opacity: 0.9;
     border-radius: 10px;

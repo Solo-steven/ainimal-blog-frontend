@@ -1,6 +1,5 @@
 import type { NextPage } from 'next';
 import Image from "next/image";
-import Logo from "public/logo.svg";
 import TwoPhone from "public/twoPhone.png";
 import NewStep01 from "public/new-step1.png";
 import NewStep02 from "public/new-step2.png";
@@ -9,6 +8,7 @@ import style from "style/home.module.css";
 import NavBar from "components/blog/NavBar";
 import Footer from "components/blog/Footer";
 import Box from "@mui/material/Box";
+import { motion } from "framer-motion";
 
 const Home: NextPage = () => {
   return (

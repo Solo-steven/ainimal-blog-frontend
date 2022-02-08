@@ -10,15 +10,21 @@ import Chip from "@mui/material/Chip";
 import SideBar from "components/user/SideBar";
 import { getUserPost } from "service/index";
 
-
 const DashBoard = () => {
     const router = useRouter();
-    const { data, status } = useSession();
-    const  request  = useSWR(data?.user.token , getUserPost);
-    if(request.error)
-        return (<p>Error</p>)
-    if(status !== "authenticated" && router.isReady)
+    const { data: session, status } = useSession();
+    const { data, error }  = useSWR(session?.user.token , getUserPost);
+
+    if(!router.isReady || status === "loading") 
+        return (
+            <div>Loading</div>
+        );
+    if(status === "unauthenticated")
         router.push("/auth/login");
+    if(error)
+        return (
+            <p>Error</p>
+        )
     return (
         <Stack direction={"row"}>
             <SideBar />
@@ -39,8 +45,8 @@ const DashBoard = () => {
                 </Box>
                 <Grid sx={{ padding: "2rem 4rem",}}  spacing={3}>
                     {
-                        request.data?.map((post: any) => (
-                            <Grid item xs={12} key={post.id}>
+                        data?.map((post: any) => (
+                            <Grid item xs={12} key={post.id} onClick={() => { router.push(`/user/editor/${post.id}`) }}>
                                 <Stack 
                                     direction="row" 
                                     sx={{
@@ -75,7 +81,6 @@ const DashBoard = () => {
             </Stack>
         </Stack>
     )
-
 }
 
 export default DashBoard;
