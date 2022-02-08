@@ -5,6 +5,9 @@ pipeline{
             steps{
                 echo "========executing A========"
             }
+            steps{
+                echo "========executingBA========"
+            }
             post{
                 always{
                     echo "========always========"
