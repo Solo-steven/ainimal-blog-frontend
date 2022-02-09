@@ -10,7 +10,6 @@ import ListItemText from "@mui/material/ListItemText";
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import ArticleIcon from '@mui/icons-material/Article';
 
-
 const SideBar = () => {
     const router = useRouter();
     return (
