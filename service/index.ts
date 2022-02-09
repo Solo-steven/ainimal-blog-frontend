@@ -1,35 +1,35 @@
 import axios from "axios";
 
+const CustomeHeader = axios.create({
+    baseURL: process.env.SERVER_URL
+});
+
 export async function getPostById(id: string) {
-    return await axios({
-        url: `http://localhost:5000/post/${id}`
-    })
+    return await CustomeHeader.get(`/post/${id}`)
     .then(response => response.data)
     .catch(err => console.log(err));
 }
 
 export async function getPost() {
-    return await axios({
-        url: `http://localhost:5000/post`
-    })
+    return await CustomeHeader.get(`/post`)
     .then(response => response.data)
     .catch(err => console.log(err));
 }
 
 export async function getPostTags() {
-    return await axios.get("http://localhost:5000/post/tag")
+    return await CustomeHeader.get("/post/tag")
         .then(response => response.data)
         .catch(err =>  console.log(err));
 }
 
 export async function getPostPopular() {
-    return await axios.get("http://localhost:5000/post/popular")
+    return await CustomeHeader.get("/post/popular")
         .then(response => response.data)
         .catch(err => console.log(err));
 }
 
 export async function login(email: string, password: string) {
-    return axios.post("http://localhost:5000/auth/login", {
+    return CustomeHeader.post("/auth/login", {
         email, password
     })
     .then(response => response.data)
@@ -37,19 +37,19 @@ export async function login(email: string, password: string) {
 }
 
 export async function getUserPost(token: string) {
-    return await axios.get("http://localhost:5000/user/post", { headers: { "Authorization": token}})
+    return await CustomeHeader.get("/user/post", { headers: { "Authorization": token}})
         .then(response => response.data)
         .catch(err => console.log(err));
 }
 
 export async function getUserPostById(token: string, Id: string) {
-    return await axios.get(`http://localhost:5000/user/post/${Id}`, { headers: { "Authorization": token  } })
+    return await CustomeHeader.get(`/user/post/${Id}`, { headers: { "Authorization": token  } })
         .then(response => response.data)
         .catch(err => console.log(err));
 }
 
 export async function createAUserPost(token: string, title: string , content: string, tags: string[]) {
-    return axios.post("http://localhost:5000/user/post",
+    return CustomeHeader.post("/user/post",
         { title, content, tags }, 
         { headers: { "Authorization": token  } }
     )
@@ -57,8 +57,7 @@ export async function createAUserPost(token: string, title: string , content: st
         .catch(err => console.log(err));
 }
 export async function updateAUserPost(token: string, id: string, title: string, content: string, tags: string[], status: string) {
-    console.log(id, title, content, tags, status);
-    return await axios.put("http://localhost:5000/user/post", 
+    return await CustomeHeader.put("/user/post", 
         { id,  title, content, tags, status},
         { headers: { "Authorization": token  } }
     )
