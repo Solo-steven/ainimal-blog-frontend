@@ -87,7 +87,7 @@ const Login: React.FC = () => {
                                 setValid([ !email, !password ]);
                                 return;
                             }
-                            const result =  await signIn("credentials", { 
+                            const result: any =  await signIn("credentials", { 
                                 redirect: false,  
                                 email,
                                 password,
